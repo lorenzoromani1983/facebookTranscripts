@@ -25,7 +25,8 @@ def search():
             link = result.find('a', href=True)
             if link:
                 link = link['href']
-                videos.append(link)
+                if "videos" in link:
+                    videos.append(link)
 
 def getData():   
     with open(file,'w', newline='', encoding="utf-8") as csvfile:
