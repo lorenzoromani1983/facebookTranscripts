@@ -9,24 +9,16 @@ baseUrl = "https://www.google.com/search?q="
 operator = "%20site:facebook.com/*/videos"
 numResults = "&num=100"
 file = "facebook_transcripts.csv"
+startPage = "&start="
 
 videos = []
 
 def search():
     print("\n","[*] Searching videos for: "+item,"\n")
-    query = baseUrl+item+operator+numResults
-    response = requests.get(query, headers=searchHeaders)
-    soup = BeautifulSoup(response.content, "html.parser")
-    resultsBlock = soup.find_all('div', attrs={'class': 'g'})
-    for result in resultsBlock:
-        link = result.find('a', href=True)
-        if link:
-            link = link['href']
-            videos.append(link)           
-    next_page = soup.find('a', id='pnnext')    
-    if next_page:
-        nextPage = baseUrl + next_page['href']
-        response = requests.get(nextPage, headers=searchHeaders)
+    start = ['0','100','200','300']
+    for startPoint in start:
+        query = baseUrl+item+operator+numResults+startPage+str(startPoint)
+        response = requests.get(query, headers=searchHeaders)
         soup = BeautifulSoup(response.content, "html.parser")
         resultsBlock = soup.find_all('div', attrs={'class': 'g'})
         for result in resultsBlock:
