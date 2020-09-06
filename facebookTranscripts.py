@@ -1,7 +1,7 @@
 # You can use quotes or other boolean operators within the query.
 # The output file will likely break if opened in Excel. This is due to the fact that a single Excel cell cannot contain more than 32.7xx characters,
 # so if you have 40.000 characters in the transcript it will be broken into more lines, affecting readability of the file. So I recommend searching and reading
-# through the file within a framework like Pandas.
+# through the file within a dataframe like Pandas.
 # Even though most indexed videos do contain a transcript, some will not. In this case, the cell will be empty.
 
 import requests
