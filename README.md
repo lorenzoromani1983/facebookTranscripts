@@ -23,8 +23,11 @@ will likely break if opened into Excel.
 So I recommend using a Pandas dataframe to parse, read and search through the file:
 
 >>> import pandas as pd
+
 >>> df = pd.read_csv("path-to-facebookTranscripts.csv", delimiter = "|", encoding = "Latin1")
+
 >>> "slavery" in df['Transcript']
+
 >>> True
 
 leave a comment for any question/suggestion!
