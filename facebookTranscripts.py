@@ -40,8 +40,7 @@ def getData():
         head = ['Date','Author','Comments','Source','Language','Transcript']
         writer.writerow(head)        
         headers = {'User-agent':'Mozilla/5.0 (compatible; Googlebot/2.1; http://www.google.com/bot.html)'}        
-        for video in set(videos):
-            print("[-] Extracting video published by: "+author)
+        for video in set(videos):           
             r = requests.get(video, headers=headers)    
             soup = BeautifulSoup(r.text , "lxml")          
             if soup.find('script', {'type':'application/ld+json'}):
@@ -53,7 +52,8 @@ def getData():
                     datePublished = jsonData['uploadDate'].split('T')[0]
                     rawVideo = jsonData['url']
                     comments = jsonData['commentCount']
-                    language = jsonData['inLanguage']                  
+                    language = jsonData['inLanguage']
+                    print("[-] Extracting video published by: "+author)
                     rows = [datePublished, author, comments, rawVideo, language, transcript]
                     writer.writerow(rows)
                
