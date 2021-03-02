@@ -1,4 +1,7 @@
 # facebookTranscripts
+
+#CODE CURRENTLY APPARENTLY BROKEN. WILL CHECK ASAP AND CHANGE ITS BEHAVIOR WITH RESPECT TO GOOGLE SEARCH (WILL INTRODUCE API SEARCH, WHICH IS FAR MORE RELIABLE).
+
 A simple (work in progress) script to extract transcripts from Google-indexed Facebook videos containing high quality transcripts
 
 Most Facebook videos, live videos, etc that are indexed by Google contain a metadata json embedded into the html. This json has a lot of information about the video, including
